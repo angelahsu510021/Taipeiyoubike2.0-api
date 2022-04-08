@@ -41,8 +41,10 @@ app.get('/total', async (req, res) => {
 })
 
 app.get('/rent',async(req,res) => {
-  const number=req.query.number
-  const { data } =await axios.get('https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json')
+  const { id, number } = req.body
+  const aaa=await Station.findOne({ id: "500106029" }, function (err, Station) {});
+  //const { number } = req.query
+  //const { data } =await axios.get('https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json')
   const number1 = data.filter( data => data['sbi'] >= Number(req.query.number) )
   res.render('rent', { number1 })
 })
