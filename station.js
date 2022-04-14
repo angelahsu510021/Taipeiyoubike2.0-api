@@ -2,13 +2,19 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
   id: {
-    type: String
+      type: String
   },
   name: {
-    type: String
+      type: String
   },
   total: {
-    type: Number
+      type: Number
+  },
+  current_number: {
+      type: Number
+  },
+  returned:{
+      type :Number
   }
 })
 
